@@ -1,11 +1,18 @@
 const planets = ["mercury", "venus", "earth", "mars", "jupiter", "saturn", "uranus", "neptune"]
-
 /*
     Use the forEach method to add the name of each planet
     to a section element in your HTML with an id of "planets".
     Use string templates to construct the DOM elements.
 */
+
 const planetEl = document.getElementById("planets")
+
+planets.forEach(planet => {
+    planetEl.innerHTML += `<ul><li>${planet}</li><ul>`
+    
+    
+});
+
 
 /*
     Use the map method to create a new array where the
@@ -13,7 +20,17 @@ const planetEl = document.getElementById("planets")
     `toUpperCase()` method on strings.
 
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase
+
 */
+
+
+let newPlanetsArray = [];
+
+planets.map(planet => {
+    newPlanetsArray.push(planet.charAt(0).toUpperCase()+ planet.toLowerCase().slice(1));
+})
+
+// console.log(newPlanetsArray);
 
 
 /*
@@ -23,3 +40,14 @@ const planetEl = document.getElementById("planets")
 
     https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
 */
+
+
+let planetsWithE = [];
+
+planets.filter(planet => {
+    if (planet.includes("e")) {
+        planetsWithE.push(planet)
+    }
+})
+
+// console.log(planetsWithE);
